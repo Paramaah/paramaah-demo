@@ -1,0 +1,17 @@
+---
+### KER - 12/28/2022
+- name: Deploy Rancher
+  hosts: all
+  gather_facts: true
+  become: true
+  vars:
+    version: "{{ VERSION }}"
+    token: "{{ TOKEN }}"
+    role: "{{ ROLE }}"
+    environment: "{{ ENVIRONMENT }}"
+
+  tasks:
+
+    - name: Deploy Rancher into target server
+      shell: "docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v{{ VERSION }} --server https://rancher-{{ ENVIRONMENT }}.clearsense.com --token {{ TOKEN }} --{{ ROLE }}"
+	

@@ -1,5 +1,4 @@
 ---
-### KER - 01/5/2023
 - name: Deploy Rancher
   hosts: all
   gather_facts: true

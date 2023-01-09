@@ -1,5 +1,5 @@
 ---
-- name: Deploy Rancher
+- name: Deploy Ranchr
   hosts: ip-172-31-91-147.ec2.internal
   gather_facts: true
   become: true
